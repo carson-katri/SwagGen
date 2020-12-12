@@ -81,3 +81,28 @@ public enum PossibleReference<T: Component>: JSONObjectConvertible {
         }
     }
 }
+
+extension Reference: Equatable where T: Equatable {
+    public static func == (lhs: Reference<T>, rhs: Reference<T>) -> Bool {
+        lhs.string == rhs.string &&
+            lhs._value == rhs._value
+    }
+}
+
+extension PossibleReference: Equatable where T: Equatable {
+    public static func == (lhs: PossibleReference<T>, rhs: PossibleReference<T>) -> Bool {
+        switch lhs {
+        case let .reference(lhsRef):
+            if case let .reference(rhsRef) = rhs {
+                return lhsRef == rhsRef
+            }
+        case let .value(lhsValue):
+            if case let .value(rhsValue) = rhs {
+                return lhsValue == rhsValue
+            }
+        default:
+            return false
+        }
+        return false
+    }
+}

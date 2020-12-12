@@ -21,3 +21,5 @@ extension Info: JSONObjectConvertible {
         license = jsonDictionary.json(atKeyPath: "license")
     }
 }
+
+extension Info: Equatable {}

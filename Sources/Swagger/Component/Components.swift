@@ -61,3 +61,5 @@ extension Array where Element: Named {
         return first { $0.name == name }
     }
 }
+
+extension Components: Equatable {}

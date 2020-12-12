@@ -88,3 +88,7 @@ extension ObjectSchema: JSONObjectConvertible {
         discriminator = jsonDictionary.json(atKeyPath: "discriminator")
     }
 }
+
+extension ObjectSchema: Equatable {}
+
+extension Property: Equatable {}

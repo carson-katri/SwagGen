@@ -16,3 +16,11 @@ extension RequestBody: JSONObjectConvertible {
         content = try jsonDictionary.json(atKeyPath: "content")
     }
 }
+
+extension RequestBody: Equatable {
+    public static func == (lhs: RequestBody, rhs: RequestBody) -> Bool {
+        lhs.required == rhs.required &&
+            lhs.description == rhs.description &&
+            lhs.content == rhs.content
+    }
+}

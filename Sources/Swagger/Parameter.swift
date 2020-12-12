@@ -52,3 +52,16 @@ extension Parameter: JSONObjectConvertible {
         }
     }
 }
+
+extension Parameter: Equatable {
+    public static func == (lhs: Parameter, rhs: Parameter) -> Bool {
+        lhs.name == rhs.name &&
+            lhs.location == rhs.location &&
+            lhs.description == rhs.description &&
+            lhs.required == rhs.required &&
+            lhs.type == rhs.type
+    }
+}
+
+extension ParameterSchema: Equatable {}
+extension ParameterType: Equatable {}

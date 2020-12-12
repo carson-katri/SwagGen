@@ -42,3 +42,14 @@ extension Response: JSONObjectConvertible {
         headers = jsonDictionary.json(atKeyPath: "headers") ?? [:]
     }
 }
+
+extension OperationResponse: Equatable {}
+extension Response: Equatable {}
+
+extension Header: Equatable {
+    public static func == (lhs: Header, rhs: Header) -> Bool {
+        lhs.description == rhs.description &&
+        lhs.required == rhs.required &&
+        lhs.schema == rhs.schema
+    }
+}

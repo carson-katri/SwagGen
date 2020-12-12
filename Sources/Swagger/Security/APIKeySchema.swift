@@ -19,3 +19,5 @@ extension APIKeySchema: JSONObjectConvertible {
         keyLocation = try jsonDictionary.json(atKeyPath: "in")
     }
 }
+
+extension APIKeySchema: Equatable {}

@@ -39,3 +39,5 @@ extension NumberSchema {
         multipleOf = jsonDictionary.json(atKeyPath: "multipleOf")
     }
 }
+
+extension NumberSchema: Equatable {}

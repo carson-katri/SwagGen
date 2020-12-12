@@ -45,6 +45,12 @@ extension Content: JSONObjectConvertible {
     }
 }
 
+extension Content: Equatable {
+    public static func == (lhs: Content, rhs: Content) -> Bool {
+        lhs.mediaItems == rhs.mediaItems
+    }
+}
+
 public struct MediaItem {
     public let schema: Schema
 }
@@ -53,5 +59,11 @@ extension MediaItem: JSONObjectConvertible {
 
     public init(jsonDictionary: JSONDictionary) throws {
         schema = try jsonDictionary.json(atKeyPath: "schema")
+    }
+}
+
+extension MediaItem: Equatable {
+    public static func == (lhs: MediaItem, rhs: MediaItem) -> Bool {
+        lhs.schema == rhs.schema
     }
 }

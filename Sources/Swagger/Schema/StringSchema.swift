@@ -58,3 +58,7 @@ extension StringSchema {
         minLength = (jsonDictionary.json(atKeyPath: "minLength")) ?? 0
     }
 }
+
+extension StringSchema: Equatable {}
+
+extension StringFormat: Equatable {}

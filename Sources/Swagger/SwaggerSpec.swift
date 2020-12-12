@@ -110,3 +110,15 @@ extension SwaggerSpec: JSONObjectConvertible {
         resolver.resolve()
     }
 }
+
+extension SwaggerSpec: Equatable {
+    public static func == (lhs: SwaggerSpec, rhs: SwaggerSpec) -> Bool {
+        lhs.version == rhs.version &&
+        lhs.info == rhs.info &&
+        lhs.paths == rhs.paths &&
+        lhs.servers == rhs.servers &&
+        lhs.components == rhs.components &&
+        lhs.securityRequirements == rhs.securityRequirements &&
+        lhs.operations == rhs.operations
+    }
+}

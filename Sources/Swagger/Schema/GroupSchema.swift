@@ -34,3 +34,5 @@ extension GroupSchema {
         discriminator = jsonDictionary.json(atKeyPath: "discriminator")
     }
 }
+
+extension GroupSchema: Equatable {}

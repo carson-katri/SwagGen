@@ -16,3 +16,5 @@ extension Contact: JSONObjectConvertible {
         email = jsonDictionary.json(atKeyPath: "email")
     }
 }
+
+extension Contact: Equatable {}

@@ -43,3 +43,6 @@ extension ArraySchema: JSONObjectConvertible {
         uniqueItems = jsonDictionary.json(atKeyPath: "uniqueItems") ?? false
     }
 }
+
+extension ArraySchema: Equatable {}
+extension ArraySchema.ArraySchemaItems: Equatable {}

@@ -40,3 +40,5 @@ extension IntegerSchema {
         multipleOf = jsonDictionary.json(atKeyPath: "multipleOf")
     }
 }
+
+extension IntegerSchema: Equatable {}

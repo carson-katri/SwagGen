@@ -38,3 +38,13 @@ extension Metadata: JSONObjectConvertible {
         json = jsonDictionary
     }
 }
+
+extension Metadata: Equatable {
+    public static func == (lhs: Metadata, rhs: Metadata) -> Bool {
+        lhs.type == rhs.type &&
+        lhs.title == rhs.title &&
+        lhs.description == rhs.description &&
+        lhs.enumNames == rhs.enumNames &&
+        lhs.nullable == rhs.nullable
+    }
+}

@@ -19,3 +19,5 @@ extension Discriminator: JSONObjectConvertible {
         mapping = jsonDictionary.json(atKeyPath: "mapping") ?? [:]
     }
 }
+
+extension Discriminator: Equatable {}

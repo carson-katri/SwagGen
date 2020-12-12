@@ -45,3 +45,5 @@ extension RequestBody: Component {
 extension Header: Component {
     public static let componentType: ComponentType = .header
 }
+
+extension ComponentObject: Equatable where T: Equatable {}

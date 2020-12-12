@@ -89,3 +89,21 @@ extension Operation {
         deprecated = (jsonDictionary.json(atKeyPath: "deprecated")) ?? false
     }
 }
+
+extension Operation: Equatable {
+    public static func == (lhs: Operation, rhs: Operation) -> Bool {
+        lhs.path == rhs.path &&
+        lhs.method == rhs.method &&
+        lhs.summary == rhs.summary &&
+        lhs.description == rhs.description &&
+        lhs.requestBody == rhs.requestBody &&
+        lhs.pathParameters == rhs.pathParameters &&
+        lhs.operationParameters == rhs.operationParameters &&
+        lhs.responses == rhs.responses &&
+        lhs.defaultResponse == rhs.defaultResponse &&
+        lhs.deprecated == rhs.deprecated &&
+        lhs.identifier == rhs.identifier &&
+        lhs.tags == rhs.tags &&
+        lhs.securityRequirements == rhs.securityRequirements
+    }
+}

@@ -10,3 +10,5 @@ public struct SecurityRequirement: JSONObjectConvertible {
         scopes = try jsonDictionary.json(atKeyPath: .key(name))
     }
 }
+
+extension SecurityRequirement: Equatable {}

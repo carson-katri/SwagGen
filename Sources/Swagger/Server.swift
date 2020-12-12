@@ -33,3 +33,6 @@ extension Server.Variable: JSONObjectConvertible {
         description = jsonDictionary.json(atKeyPath: "description")
     }
 }
+
+extension Server: Equatable {}
+extension Server.Variable: Equatable {}

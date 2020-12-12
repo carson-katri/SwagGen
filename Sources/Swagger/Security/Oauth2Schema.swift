@@ -49,3 +49,6 @@ extension OAuth2Schema.Flow: JSONObjectConvertible {
         scopes = try jsonDictionary.json(atKeyPath: "scopes")
     }
 }
+
+extension OAuth2Schema: Equatable {}
+extension OAuth2Schema.Flow: Equatable {}

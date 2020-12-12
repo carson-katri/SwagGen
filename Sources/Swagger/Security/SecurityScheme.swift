@@ -43,3 +43,11 @@ extension SecurityScheme: JSONObjectConvertible {
         }
     }
 }
+
+extension SecuritySchemeType: Equatable {}
+extension SecurityScheme: Equatable {
+    public static func == (lhs: SecurityScheme, rhs: SecurityScheme) -> Bool {
+        lhs.description == rhs.description &&
+            lhs.type == rhs.type
+    }
+}

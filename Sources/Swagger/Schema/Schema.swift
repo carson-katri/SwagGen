@@ -85,3 +85,6 @@ extension SchemaType: JSONObjectConvertible {
         }
     }
 }
+
+extension Schema: Equatable {}
+extension SchemaType: Equatable {}

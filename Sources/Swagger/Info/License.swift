@@ -14,3 +14,5 @@ extension License: JSONObjectConvertible {
         url = jsonDictionary.json(atKeyPath: "url")
     }
 }
+
+extension License: Equatable {}

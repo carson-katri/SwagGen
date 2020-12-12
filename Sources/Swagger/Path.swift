@@ -25,3 +25,5 @@ extension Path: NamedMappable {
         operations = mappedOperations
     }
 }
+
+extension Path: Equatable {}
