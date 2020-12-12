@@ -62,4 +62,19 @@ extension Array where Element: Named {
     }
 }
 
-extension Components: Equatable {}
+extension Components: Equatable {
+    public static == (lhs: Components, rhs: Components) -> Bool {
+        lhs.securitySchemes.count == rhs.securitySchemes.count &&
+            lhs.securitySchemes.allSatisfy { rhs.securitySchemes.contains($0) } &&
+        lhs.schemas.count == rhs.schemas.count &&
+            lhs.schemas.allSatisfy { rhs.schemas.contains($0) } &&
+        lhs.parameters.count == rhs.parameters.count &&
+            lhs.parameters.allSatisfy { rhs.parameters.contains($0) } &&
+        lhs.responses.count == rhs.responses.count &&
+            lhs.responses.allSatisfy { rhs.responses.contains($0) } &&
+        lhs.requestBodies.count == rhs.requestBodies.count &&
+            lhs.requestBodies.allSatisfy { rhs.requestBodies.contains($0) } &&
+        lhs.headers.count == rhs.headers.count &&
+            lhs.headers.allSatisfy { rhs.headers.contains($0) }
+    }
+}
