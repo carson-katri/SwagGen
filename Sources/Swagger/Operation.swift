@@ -97,13 +97,18 @@ extension Operation: Equatable {
         lhs.summary == rhs.summary &&
         lhs.description == rhs.description &&
         lhs.requestBody == rhs.requestBody &&
-        lhs.pathParameters == rhs.pathParameters &&
-        lhs.operationParameters == rhs.operationParameters &&
-        lhs.responses == rhs.responses &&
+        lhs.pathParameters.count == rhs.pathParameters.count &&
+        lhs.pathParameters.allSatisfy { rhs.pathParameters.contains($0) } &&
+        lhs.operationParameters.count == rhs.operationParameters.count &&
+        lhs.operationParameters.allSatisfy { rhs.operationParameters.contains($0) } &&
+        lhs.responses.count == rhs.responses.count &&
+        lhs.responses.allSatisfy { rhs.responses.contains($0) } &&
         lhs.defaultResponse == rhs.defaultResponse &&
         lhs.deprecated == rhs.deprecated &&
         lhs.identifier == rhs.identifier &&
         lhs.tags == rhs.tags &&
-        lhs.securityRequirements == rhs.securityRequirements
+            (lhs.securityRequirements == rhs.securityRequirements ||
+                (lhs.securityRequirements?.allSatisfy { rhs.securityRequirements?.contains($0) ?? false }) ?? false
+            )
     }
 }

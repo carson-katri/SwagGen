@@ -26,4 +26,12 @@ extension Path: NamedMappable {
     }
 }
 
-extension Path: Equatable {}
+extension Path: Equatable {
+    public static func == (lhs: Path, rhs: Path) -> Bool {
+        lhs.path == rhs.path &&
+            lhs.operations.count == rhs.operations.count &&
+            lhs.operations.allSatisfy { rhs.operations.contains($0) } &&
+            lhs.parameters.count == rhs.parameters.count &&
+            lhs.parameters.allSatisfy { rhs.parameters.contains($0) }
+    }
+}
