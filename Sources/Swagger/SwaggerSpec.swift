@@ -115,10 +115,12 @@ extension SwaggerSpec: Equatable {
     public static func == (lhs: SwaggerSpec, rhs: SwaggerSpec) -> Bool {
         lhs.version == rhs.version &&
         lhs.info == rhs.info &&
-        lhs.paths == rhs.paths &&
-        lhs.servers == rhs.servers &&
+        lhs.paths.allSatisfy { rhs.paths.contains($0) } &&
+        lhs.servers.allSatisfy { rhs.servers.contains($0) } &&
         lhs.components == rhs.components &&
-        lhs.securityRequirements == rhs.securityRequirements &&
-        lhs.operations == rhs.operations
+        (lhs.securityRequirements == rhs.securityRequirements ||
+            (lhs.securityRequirements?.allSatisfy { rhs.securityRequirements?.contains($0) ?? false }) ?? false
+        ) &&
+        lhs.operations.allSatisfy { rhs.operations.contains($0) }
     }
 }
