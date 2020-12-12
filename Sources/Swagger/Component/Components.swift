@@ -63,7 +63,7 @@ extension Array where Element: Named {
 }
 
 extension Components: Equatable {
-    public static == (lhs: Components, rhs: Components) -> Bool {
+    public static func == (lhs: Components, rhs: Components) -> Bool {
         lhs.securitySchemes.count == rhs.securitySchemes.count &&
             lhs.securitySchemes.allSatisfy { rhs.securitySchemes.contains($0) } &&
         lhs.schemas.count == rhs.schemas.count &&
