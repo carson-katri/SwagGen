@@ -95,6 +95,7 @@ extension Operation: Equatable {
         lhs.path == rhs.path &&
         lhs.method == rhs.method &&
         lhs.summary == rhs.summary &&
+        lhs.description == rhs.description &&
         lhs.requestBody == rhs.requestBody &&
         lhs.pathParameters.count == rhs.pathParameters.count &&
         lhs.pathParameters.allSatisfy { rhs.pathParameters.contains($0) } &&
